@@ -1,0 +1,18 @@
+<table>
+    <% @movies.each do |movie| %>
+        <tr>
+            <td><%= movie.id %></td>
+            <td><%= movie.name %></td>
+            <td><%= movie.year %></td>
+            <% if movie.is_showing == true then %>
+                <td>上映中</td>
+            <% else %>
+                <td>上映予定</td>
+            <% end %>
+            <td><%= movie.description %></td>
+            <td><a href=<%= movie.image_url %>><%= movie.image_url %></a></td>
+            <td><%= movie.created_at %></td>
+            <td><%= movie.updated_at %></td>
+        </tr>
+    <% end %>
+</table>
