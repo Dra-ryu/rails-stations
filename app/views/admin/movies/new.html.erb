@@ -1,0 +1,13 @@
+<%= form_with url: '/admin/movies' do |m| %>
+    <%= m.label :映画タイトル%>
+    <%= m.text_field :name %>
+    <%= m.label :公開年 %>
+    <%= m.text_area :year %>
+    <%= m.label :上映中か %>
+    <%= m.select :is_showing, [["上映中", true], ["上映予定", false]], include_blank: "選択して下さい" %>
+    <%= m.label :概要 %>
+    <%= m.text_area :description %>
+    <%= m.label :画像URL %>
+    <%= m.text_area :image_url %>
+    <%= m.submit "送信" %>
+<% end %>
