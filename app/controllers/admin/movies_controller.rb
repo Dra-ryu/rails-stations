@@ -18,6 +18,7 @@ class Admin::MoviesController < ApplicationController
         end
     end
 
+    private
     def movie_params
         params.permit(:name, :year, :is_showing, :description, :image_url)
     end
