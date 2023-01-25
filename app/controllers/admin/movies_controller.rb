@@ -8,20 +8,17 @@ class Admin::MoviesController < ApplicationController
     end
         
     def create
-        @movies = Movie.new(movies_params)
-        
-        # puts @movies
-        # puts movies_params
+        # Movieモデルを初期化し、newの中にmovie_paramsを指定
+        @movies = Movie.new(movie_params)
 
         if @movies.save
-            # puts "aaaaaaaaaaaaaaaaa"
             redirect_to "/admin/movies"
         else
             render action "new"
         end
     end
 
-    def movies_params
+    def movie_params
         params.permit(:name, :year, :is_showing, :description, :image_url)
     end
 end
