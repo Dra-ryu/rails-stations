@@ -1,0 +1,2 @@
+class ChangeUniqueKeyMovie < ApplicationRecord
+end
