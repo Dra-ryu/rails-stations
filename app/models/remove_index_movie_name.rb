@@ -1,0 +1,2 @@
+class RemoveIndexMovieName < ApplicationRecord
+end
