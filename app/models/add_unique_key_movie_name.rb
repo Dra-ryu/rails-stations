@@ -1,0 +1,2 @@
+class AddUniqueKeyMovieName < ApplicationRecord
+end
