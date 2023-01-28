@@ -18,6 +18,20 @@ class Admin::MoviesController < ApplicationController
         end
     end
 
+    def edit
+        @movies = Movie.find(params[:id])
+    end
+
+    def update
+        @movies = Movie.find(params[:id])
+        if @movies.update(movie_params)
+            redirect_to action: :index
+        else
+            flash.now[:danger] = "編集に失敗しました"
+            render action: :edit
+        end
+    end
+
     private
     def movie_params
         params.permit(:name, :year, :is_showing, :description, :image_url)
