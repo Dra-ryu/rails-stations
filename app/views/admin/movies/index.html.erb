@@ -1,7 +1,7 @@
 <table>
     <% @movies.each do |movie| %>
         <tr>
-            <td><%= movie.id %></td>
+            <td><%= link_to movie.id, "movies/#{movie.id}/edit" %></td>
             <td><%= movie.name %></td>
             <td><%= movie.year %></td>
             <% if movie.is_showing == true then %>
