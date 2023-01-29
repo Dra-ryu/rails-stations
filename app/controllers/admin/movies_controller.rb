@@ -10,7 +10,6 @@ class Admin::MoviesController < ApplicationController
     def create
         # Movieモデルを初期化し、newの中にmovie_paramsを指定
         @movies = Movie.new(movie_params)
-
         if @movies.save
             redirect_to "/admin/movies"
         else
@@ -25,15 +24,14 @@ class Admin::MoviesController < ApplicationController
     def update
         @movies = Movie.find(params[:id])
         if @movies.update(movie_params)
-            redirect_to action: :index
+            redirect_to "/admin/movies"
         else
-            flash.now[:danger] = "編集に失敗しました"
-            render action: :edit
+            render action "edit"
         end
     end
 
     private
     def movie_params
-        params.permit(:name, :year, :is_showing, :description, :image_url)
+        params.require(:movie).permit(:name, :year, :is_showing, :description, :image_url, :id)
     end
 end
