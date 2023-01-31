@@ -13,6 +13,7 @@
             <td><a href=<%= movie.image_url %>><%= movie.image_url %></a></td>
             <td><%= movie.created_at %></td>
             <td><%= movie.updated_at %></td>
+            <td><%= link_to "削除", "movies/#{movie.id}", method: :delete %></td>
         </tr>
     <% end %>
 </table>
