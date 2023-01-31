@@ -32,6 +32,12 @@ class Admin::MoviesController < ApplicationController
         end
     end
 
+    def destroy
+        @movies = Movie.find(params[:id])
+        @movies.destroy
+        redirect_to "/admin/movies"
+    end
+
     private
     def movie_create_params
         params.permit(:name, :year, :is_showing, :description, :image_url, :id)
