@@ -1,7 +1,9 @@
-<p>検索</p>
-<%= form_tag(search_path,:method => 'get') do %>
-  <%= text_field_tag :search %>
-  <%= submit_tag 'Search', :name => nil %>
+<h1>ユーザー検索</h1>
+<%= search_form_for @q, url: search_path do |f| %>
+  <%= f.label :name_cont, 'タイトル名' %>
+  <%= f.search_field :name_cont %>
+  <br>
+  <%= f.submit '検索' %>
 <% end %>
 <ul>
     <% @movies.each do |movie| %>
